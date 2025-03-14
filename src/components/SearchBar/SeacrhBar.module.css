@@ -1,0 +1,41 @@
+/* FilterBar.module.css */
+.searchBar {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    justify-content: center;
+    width: 56%;
+    margin: 0 auto;
+  }
+  
+  .searchInput {
+    width: 200px;
+    height: 35px;
+    padding: 0 10px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .dropdownButton {
+    height: 35px;
+    padding: 0 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .searchButton {
+    height: 35px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }

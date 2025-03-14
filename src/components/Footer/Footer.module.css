@@ -1,0 +1,36 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 6vw;
+    padding-right: 20vw;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+    background-color: #000000;
+}
+
+.footer-aboutCompanySection, .footer-citySection, .footer-vehicleTypesSection{
+    margin-bottom: 15px;
+}
+
+.driveeSection-icons{
+    display: flex;
+    gap: 30px;
+}
+
+div p{
+    color: #818181;
+}
+
+h2, h4{
+    margin-bottom: 20px;
+    color: #CFCECF;
+}
+
+p{
+    margin-bottom: 30px;
+    color: #838483;
+}
+
+li{
+    color: #8D8C8C;
+}
