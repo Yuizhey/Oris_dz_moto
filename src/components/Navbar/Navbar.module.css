@@ -1,29 +1,34 @@
 .navbar{
     display: flex;
-    height: 15vh;
     width: 1200px;
+    height: 100px;
     justify-content: space-between;
-    padding-top: 3vh;
     margin: 0 auto;
-    background-color: red;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 20px;
 }
+
 
 .navbar-menu-list{
     display: flex;
-    gap: 50px;
+    list-style: none;
+    align-items: center;
+    gap: 40px;
 }
 
-.navbar-menu-list-item{
-    list-style: none;
+.navbar-logo, .navbar-userImage, .navbar-menu{
+    height: 100%;
+    align-items: center;
+    align-content: center;
+}
+
+img{
+    height: 70%;
 }
 
 a{
     text-decoration: none;
-    cursor: pointer;
-}
-
-img{
-    height: 100%;
-    max-width: 100%;  /* Ограничивает ширину изображения */
-    object-fit: contain;
+    color: black;
+    
 }

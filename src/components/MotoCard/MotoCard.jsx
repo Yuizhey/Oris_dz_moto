@@ -1,25 +1,31 @@
 import React from 'react'
+import styles from "./MotoCard.module.css"
 
 function MotoCard(props) {
   return (
-    <div>
-        <img src={props.imagePath} alt="" className="motoCardImage" />
-        <h3 className="motoCardName">props.name</h3>
-        <div className="motoCardInfo-FirstLine">
-
+    <div className={styles.motoCard}>
+        <img src={props.imagePath} alt="" className={styles.motoCardImage} />
+        <h3 className={styles.motoCardName}>{props.name}</h3>
+        <div className={styles.motoCardInfo}>
+          <p className="motoCharacteristic">Seats:2</p>
+          <p className="motoCharacteristic">Horsepower:500</p>
         </div>
-        <div className="motoCardInfo-SecondLine">
-            
+        <div className={styles.motoCardInfo}>
+          <p className="motoCharacteristic">Fuel:Petrol</p>
+          <p className="motoCharacteristic">Engine:3000</p>
         </div>
-        <div className="motoCardInfo-ThirdLine">
-            
+        <div className={styles.motoCardInfo}>
+          <p className="motoCharacteristic">Front Brake:Disc</p>
+          <p className="motoCharacteristic">Stroke:58.7 Mm</p>   
         </div>
-        <div className="motoCardInfo-FourthLine">
-            
+        <div className={styles.motoCardInfo}>
+          <p className="motoCharacteristic">Gear Box:6-Speed</p>
+          <p className="motoCharacteristic">Overall Mileage:40 Kmpl</p>   
         </div>
-        <div className="motoCardRentInfo">
+        <div className={styles.motoCardRentInfo}>
             <div className="motoCardRentInfo-price">
-                
+              <p className="pricePerHour">Per Hours</p>
+              <p className="priceInDollars">56$</p>
             </div>
             <button className="motoCardRentInfo-button">Rent Bike</button>
         </div>

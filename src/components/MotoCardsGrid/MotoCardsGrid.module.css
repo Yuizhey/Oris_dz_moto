@@ -1,0 +1,8 @@
+.motoCardsGrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 40px;
+}
