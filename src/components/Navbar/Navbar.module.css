@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    height: 7vh;
+    justify-content: space-between;
+    padding-top: 3vh;
+}
+
+.navbar-menu-list{
+    display: flex;
+}
+
+.navbar-menu-list-item{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img{
+    height: 100%;
+}
