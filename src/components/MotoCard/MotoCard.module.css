@@ -1,16 +1,84 @@
-.motoCard{
+.card {
+    width: 100% !important;
+    max-width: 300px !important;
+    border-radius: 15px !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden !important;
+    padding: 15px !important;
+    transition: transform 0.2s ease-in-out !important;
+    cursor: pointer !important;
+    background-color: #F4F4F3;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.cardImage {
     width: 100%;
-    height: 500px;
-    border: 1px solid black;
+    height: auto;
     border-radius: 10px;
 }
 
-.motoCardInfo, .motoCardRentInfo{
-    display: flex;
-    justify-content: space-between;
+.cardName {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 0 10px;
+    color: #000;
 }
 
-.motoCardImage{
-    width: 100%;
-    height: 50%;
+.cardInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.cardRentInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 15px 10px;
+}
+
+.rentInfoPrice {
+    align-items: center;
+}
+
+.pricePerHour {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.priceInDollars {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    text-align: center;
+}
+
+.rentInfoButton {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rentInfoButton:hover {
+    background-color: #333;
+}
+
+.characteristic {
+    font-size: 14px;
+    color: #666;
 }

@@ -1,19 +1,18 @@
 import './App.css'
-import Footer from './components/Footer/Footer'
-import MotoCard from './components/MotoCard/MotoCard'
-import MotoCardsGrid from './components/MotoCardsGrid/MotoCardsGrid'
-import Navbar from './components/Navbar/Navbar'
-import SearchBar from './components/SearchBar/SearchBar'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import MotoHomePage from './pages/MotoHomePage';
+import MotoIndividualPage from './pages/MotoIndividualPage';
 
 function App() {
 
   return (
-    <>
-      <Navbar />
-      <SearchBar />
-      <MotoCardsGrid/>
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/motohomepage" />} />
+        <Route path='motohomepage' element={<MotoHomePage/>}/>
+        <Route path='motoindividualpage' element={<MotoIndividualPage/>}/>
+      </Routes>
+    </Router>
   )
 }
 

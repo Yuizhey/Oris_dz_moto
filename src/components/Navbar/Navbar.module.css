@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin: 0 auto;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     padding: 20px;
 }
 
@@ -21,6 +21,10 @@
     height: 100%;
     align-items: center;
     align-content: center;
+}
+
+.navbar-logo{
+    cursor: pointer;
 }
 
 img{

@@ -1,33 +1,41 @@
 import React from 'react'
 import styles from "./MotoCard.module.css"
+import { useNavigate } from 'react-router-dom'
 
 function MotoCard(props) {
+
+  const navigate = useNavigate();
+
+  function goToIndividualMotoPage(){
+    navigate("/motoindividualpage")
+  }
+
   return (
-    <div className={styles.motoCard}>
-        <img src={props.imagePath} alt="" className={styles.motoCardImage} />
-        <h3 className={styles.motoCardName}>{props.name}</h3>
-        <div className={styles.motoCardInfo}>
-          <p className="motoCharacteristic">Seats:2</p>
-          <p className="motoCharacteristic">Horsepower:500</p>
+    <div className={styles.card} onClick={goToIndividualMotoPage}>
+        <img src={props.imagePath} alt="" className={styles.cardImage} />
+        <h3 className={styles.cardName}>{props.name}</h3>
+        <div className={styles.cardInfo}>
+          <p className={styles.characteristic}>Seats:2</p>
+          <p className={styles.characteristic}>Horsepower:500</p>
         </div>
-        <div className={styles.motoCardInfo}>
-          <p className="motoCharacteristic">Fuel:Petrol</p>
-          <p className="motoCharacteristic">Engine:3000</p>
+        <div className={styles.cardInfo}>
+          <p className={styles.characteristic}>Fuel:Petrol</p>
+          <p className={styles.characteristic}>Engine:3000</p>
         </div>
-        <div className={styles.motoCardInfo}>
-          <p className="motoCharacteristic">Front Brake:Disc</p>
-          <p className="motoCharacteristic">Stroke:58.7 Mm</p>   
+        <div className={styles.cardInfo}>
+          <p className={styles.characteristic}>Front Brake:Disc</p>
+          <p className={styles.characteristic}>Stroke:58.7 Mm</p>   
         </div>
-        <div className={styles.motoCardInfo}>
-          <p className="motoCharacteristic">Gear Box:6-Speed</p>
-          <p className="motoCharacteristic">Overall Mileage:40 Kmpl</p>   
+        <div className={styles.cardInfo}>
+          <p className={styles.characteristic}>Gear Box:6-Speed</p>
+          <p className={styles.characteristic}>Overall Mileage:40 Kmpl</p>   
         </div>
-        <div className={styles.motoCardRentInfo}>
-            <div className="motoCardRentInfo-price">
-              <p className="pricePerHour">Per Hours</p>
-              <p className="priceInDollars">56$</p>
+        <div className={styles.cardRentInfo}>
+            <div className={styles.rentInfoPrice}>
+              <p className={styles.pricePerHour}>Per Hour</p>
+              <p className={styles.priceInDollars}>$56</p>
             </div>
-            <button className="motoCardRentInfo-button">Rent Bike</button>
+            <button className={styles.rentInfoButton} onClick={(e) => e.stopPropagation()}>Rent Bike</button>
         </div>
     </div>
   )
