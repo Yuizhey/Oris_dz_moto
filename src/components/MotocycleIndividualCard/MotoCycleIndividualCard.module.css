@@ -1,0 +1,39 @@
+.characteristic {
+    font-size: 14px;
+    color: #666;
+}
+
+.cardInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #666;
+    width: 400px;
+}
+
+.motorcycle-card {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.motorcycle-card h2,
+.motorcycle-card h4 {
+    color: black; 
+}
+
+.specifications {
+    width: 300px;
+}
+
+.information{
+    width: 550px;
+}
+
+.slider{
+    width: 55%;
+}
+
+.slider img{
+    width: 100%;
+}
