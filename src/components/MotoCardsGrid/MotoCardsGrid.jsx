@@ -1,14 +1,13 @@
 import React from 'react'
 import MotoCard from '../MotoCard/MotoCard'
 import styles from "./MotoCardsGrid.module.css"
-import motocyclesConsts from "../../MotocyclesConsts"
 
-function MotoCardsGrid() {
+function MotoCardsGrid(props) {
   
   return (
     <div className={styles.motoCardsGrid}>
-        {motocyclesConsts.map(item => (
-          <MotoCard imagePath={item.imagePath} name={item.name} />
+        {props.list.map((item, index) => (
+          <MotoCard motocycle={item} key={index}/>
         ))}
     </div>
   )

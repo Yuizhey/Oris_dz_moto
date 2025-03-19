@@ -9,6 +9,7 @@
     border: 1px solid #ccc;
     justify-content: center;
     width: 56%;
+    max-width: 800px;
     margin: 0 auto;
     margin-bottom: 50px;
   }
