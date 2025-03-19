@@ -7,7 +7,7 @@ function MotoCard(props) {
   const navigate = useNavigate();
 
   function goToIndividualMotoPage() {
-    navigate(`/motoindividualpage/${props.motocycle.name}`);
+    navigate(`/motoindividualpage/${props.motocycle.id}`);
   }
 
   return (

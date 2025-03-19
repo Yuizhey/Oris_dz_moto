@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/motohomepage" />} />
-        <Route path='motohomepage' element={<MotoHomePage/>}/>
-        <Route path='motoindividualpage' element={<MotoIndividualPage/>}/>
+        <Route path='/motohomepage' element={<MotoHomePage/>}/>
+        <Route path='/motoindividualpage/:id' element={<MotoIndividualPage/>}/>
       </Routes>
     </Router>
   )

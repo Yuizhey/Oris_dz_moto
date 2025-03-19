@@ -1,5 +1,6 @@
 const motocyclesConsts = [
     {
+      id: 1,
       imagePath: "images/CBR.png",
       name: "CBR",
       characteristics: {
@@ -15,6 +16,7 @@ const motocyclesConsts = [
       pricePerHour: 56
     },
     {
+      id: 2,
       imagePath: "images/Honda 140.png",
       name: "Honda 140",
       characteristics: {
@@ -30,6 +32,7 @@ const motocyclesConsts = [
       pricePerHour: 45
     },
     {
+      id: 3,
       imagePath: "images/KPR 150.png",
       name: "KPR 150",
       characteristics: {
@@ -45,6 +48,7 @@ const motocyclesConsts = [
       pricePerHour: 50
     },
     {
+      id: 4,
       imagePath: "images/Kawasaki 360.png",
       name: "Kawasaki 360",
       characteristics: {
@@ -60,6 +64,7 @@ const motocyclesConsts = [
       pricePerHour: 80
     },
     {
+      id: 5,
       imagePath: "images/Gixser.png",
       name: "Gixser",
       characteristics: {
@@ -75,6 +80,7 @@ const motocyclesConsts = [
       pricePerHour: 55
     },
     {
+      id: 6,
       imagePath: "images/moto.png",
       name: "MT15",
       characteristics: {
@@ -90,6 +96,7 @@ const motocyclesConsts = [
       pricePerHour: 47
     },
     {
+      id: 7,
       imagePath: "images/CVR.png",
       name: "CVR",
       characteristics: {
@@ -105,6 +112,7 @@ const motocyclesConsts = [
       pricePerHour: 60
     },
     {
+      id: 8,
       imagePath: "images/R1 5.png",
       name: "R1 5",
       characteristics: {
@@ -120,6 +128,7 @@ const motocyclesConsts = [
       pricePerHour: 58
     },
     {
+      id: 9,
       imagePath: "images/Kawasaki !40.png",
       name: "Kawasaki !40",
       characteristics: {
@@ -135,6 +144,7 @@ const motocyclesConsts = [
       pricePerHour: 42
     },
     {
+      id: 10,
       imagePath: "images/MT15.png",
       name: "MT15",
       characteristics: {
@@ -150,6 +160,7 @@ const motocyclesConsts = [
       pricePerHour: 47
     },
     {
+      id: 11,
       imagePath: "images/Filder 350.png",
       name: "Filder 350",
       characteristics: {
@@ -165,6 +176,7 @@ const motocyclesConsts = [
       pricePerHour: 75
     },
     {
+      id: 12,
       imagePath: "images/Scookiti.png",
       name: "Scookiti",
       characteristics: {
@@ -180,6 +192,5 @@ const motocyclesConsts = [
       pricePerHour: 40
     }
   ];
-  
+
   export default motocyclesConsts;
-  

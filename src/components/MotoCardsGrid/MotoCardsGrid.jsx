@@ -6,8 +6,8 @@ function MotoCardsGrid(props) {
   
   return (
     <div className={styles.motoCardsGrid}>
-        {props.list.map((item, index) => (
-          <MotoCard motocycle={item} key={index}/>
+        {props.list.map((item) => (
+          <MotoCard motocycle={item} key={item.id}/>
         ))}
     </div>
   )
