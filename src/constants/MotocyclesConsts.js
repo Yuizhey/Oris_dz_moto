@@ -81,7 +81,7 @@ const motocyclesConsts = [
     },
     {
       id: 6,
-      imagePath: "images/moto.png",
+      imagePath: "images/MT15.png",
       name: "MT15",
       characteristics: {
         seats: 2,
