@@ -7,6 +7,7 @@ import motocyclesConsts from "../constants/MotocyclesConsts"
 import carsConsts from "../constants/CarsConsts"
 import "./pages.css"
 
+
 function MotoHomePage() {
   const [filteredMotocycleList, setFilteredMotocycleList] = useState(motocyclesConsts);
   const [filteredCarsList, setFilteredCarsList] = useState(carsConsts);
@@ -40,7 +41,7 @@ function MotoHomePage() {
       <Navbar />
       <SearchBar onChange={handleSearch} onChangeType={handleChangeType}/>
       <div className="content">
-        <MotoCardsGrid list={currentTypeOfList === 'motocycles' ? filteredMotocycleList : filteredCarsList} />
+        <MotoCardsGrid list={currentTypeOfList === 'motocycles' ? filteredMotocycleList : filteredCarsList} type={currentTypeOfList}/>
       </div>
       <Footer />
     </div>

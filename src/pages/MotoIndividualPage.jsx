@@ -2,17 +2,26 @@ import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import MotoCycleIndividualCard from '../components/MotocycleIndividualCard/MotoCycleIndividualCard'
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import "./pages.css"
 
 function MotoIndividualPage() {
-  const {id} = useParams();
+  const { state } = useLocation();
+  const { item, type } = state || {}; 
+
+  if (!item) {
+    return <div>No data found</div>; 
+  }
+
   return (
-    <>
-        <Navbar />
-        <MotoCycleIndividualCard id={id}/>
-        <Footer />
-    </>
-  )
+    <div className="page-container">
+      <Navbar />
+      <div className="content">
+        <MotoCycleIndividualCard motorcycle={item} type={type} />
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default MotoIndividualPage

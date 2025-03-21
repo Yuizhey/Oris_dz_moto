@@ -1,83 +1,125 @@
 import React, { useState } from 'react';
-import motocyclesConsts from "../../constants/MotocyclesConsts.js"
-import styles from "./MotoCycleIndividualCard.module.css"
+import styles from "./MotoCycleIndividualCard.module.css";
 
-function MotoCycleIndividualCard({id}) {
+function MotoCycleIndividualCard({ motorcycle, type }) {
+  // Если транспорт не передан, показываем сообщение об ошибке
+  if (!motorcycle) {
+    return <div>Транспорт не найден</div>;
+  }
 
-    const motorcycle = motocyclesConsts.find(moto => moto.id.toString() === id.toString()); 
+  const isMotocycle = type === "motocycles";
 
-    if (!motorcycle) {
-        return <div>Мотоцикл не найден</div>;
-    }
+  // Деструктуризация для удобства
+  const { id, imagePath, name, characteristics, pricePerHour } = motorcycle;
+  const { seats, horsepower, fuel, engine } = characteristics;
 
-    const images =[
-        motorcycle.imagePath,
-        motorcycle.imagePath,
-        motorcycle.imagePath,
-        motorcycle.imagePath,
-    ]
+  // Массив изображений (можно заменить на реальные данные)
+  const images = [
+    imagePath,
+    imagePath,
+    imagePath,
+    imagePath,
+  ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+  // Состояние для текущего индекса слайда
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-    
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-    };
+  // Функции для переключения слайдов
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-    return (
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  return (
     <div className={styles["motorcycle-card"]}>
-        <div className="motorcycle-card-firstContainer">
-            <div className={styles.slider}>
-                <div className="slider-images">
-                    <img src={`../../${images[currentIndex]}`} alt={`Slide ${currentIndex + 1}`} />
-                </div>
-                <div className="slider-controls">
-                    <button onClick={prevSlide}>Prev</button>
-                    <button onClick={nextSlide}>Next</button>
-                </div>
-            </div>
-            <div className="book">
-                
-            </div>
+      {/* Первый контейнер: слайдер и кнопка бронирования */}
+      <div className="motorcycle-card-firstContainer">
+        <div className={styles.slider}>
+          <div className="slider-images">
+            <img
+              src={`../../${images[currentIndex]}`} // Используем правильный путь к изображению
+              alt={`Slide ${currentIndex + 1}`}
+            />
+          </div>
+          <div className="slider-controls">
+            <button onClick={prevSlide}>Prev</button>
+            <button onClick={nextSlide}>Next</button>
+          </div>
         </div>
-        <div className="motorcycle-card-secondContainer">
-            <div className={styles.information}>
-                <h2 className="information-title">{motorcycle.name}</h2>
-                <p className="information-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, sit molestiae. 
-                    Quos consectetur amet voluptatibus asperiores optio 
-                    reprehenderit autem, facilis placeat porro, illum laudantium consequatur quis ad et minus, 
-                    sit quisquam similique esse perferendis 
-                    recusandae veniam! Voluptates minus pariatur repudiandae.
+      </div>
+
+      {/* Второй контейнер: информация и характеристики */}
+      <div className="motorcycle-card-secondContainer">
+        <div className={styles.information}>
+          <h2 className="information-title">{name}</h2>
+          <p className="information-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, sit
+            molestiae. Quos consectetur amet voluptatibus asperiores optio
+            reprehenderit autem, facilis placeat porro, illum laudantium
+            consequatur quis ad et minus, sit quisquam similique esse perferendis
+            recusandae veniam! Voluptates minus pariatur repudiandae.
+          </p>
+        </div>
+        <div className={styles.specifications}>
+          <h4 className="specifications-title">Specifications</h4>
+          <div className={styles.cardInfo}>
+            <p className={styles.characteristic}>Seats: {seats}</p>
+            <p className={styles.characteristic}>Horsepower: {horsepower}</p>
+          </div>
+          <div className={styles.cardInfo}>
+            <p className={styles.characteristic}>Fuel: {fuel}</p>
+            <p className={styles.characteristic}>Engine: {engine}</p>
+          </div>
+
+          {/* Условный рендеринг для мотоциклов и автомобилей */}
+          {isMotocycle ? (
+            <>
+              <div className={styles.cardInfo}>
+                <p className={styles.characteristic}>
+                  Front Brake: {characteristics.frontBrake}
                 </p>
-            </div>
-            <div className={styles.specifications}>
-                <h4 className="specifications-title">Specifications</h4>
-                <div className={styles.cardInfo}>
-                    <p className={styles.characteristic}>Seats: {motorcycle.characteristics.seats}</p>
-                    <p className={styles.characteristic}>Horsepower: {motorcycle.characteristics.horsepower}</p>
-                </div>
-                <div className={styles.cardInfo}>
-                    <p className={styles.characteristic}>Fuel: {motorcycle.characteristics.fuel}</p>
-                    <p className={styles.characteristic}>Engine: {motorcycle.characteristics.engine}</p>
-                </div>
-                <div className={styles.cardInfo}>
-                    <p className={styles.characteristic}>Front Brake: {motorcycle.characteristics.frontBrake}</p>
-                    <p className={styles.characteristic}>Stroke: {motorcycle.characteristics.stroke}</p>   
-                </div>
-                <div className={styles.cardInfo}>
-                    <p className={styles.characteristic}>Gear Box: {motorcycle.characteristics.gearBox}</p>
-                    <p className={styles.characteristic}>Overall Mileage: {motorcycle.characteristics.mileage}</p>   
-                </div>
-            </div>
+                <p className={styles.characteristic}>
+                  Stroke: {characteristics.stroke}
+                </p>
+              </div>
+              <div className={styles.cardInfo}>
+                <p className={styles.characteristic}>
+                  Gear Box: {characteristics.gearBox}
+                </p>
+                <p className={styles.characteristic}>
+                  Overall Mileage: {characteristics.mileage}
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.cardInfo}>
+                <p className={styles.characteristic}>
+                  Doors: {characteristics.doors}
+                </p>
+                <p className={styles.characteristic}>
+                  Drive: {characteristics.drive}
+                </p>
+              </div>
+              <div className={styles.cardInfo}>
+                <p className={styles.characteristic}>
+                  Type: {characteristics.type}
+                </p>
+                <p className={styles.characteristic}>
+                  Luggage: {characteristics.luggage}
+                </p>
+              </div>
+            </>
+          )}
         </div>
+      </div>
     </div>
   );
-};
+}
 
-export default MotoCycleIndividualCard
+export default MotoCycleIndividualCard;
