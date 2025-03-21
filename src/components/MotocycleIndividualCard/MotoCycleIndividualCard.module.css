@@ -15,25 +15,147 @@
 .motorcycle-card {
     width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .motorcycle-card h2,
 .motorcycle-card h4 {
-    color: black; 
+    color: black;
 }
 
 .specifications {
     width: 300px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.information{
+.information {
     width: 550px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.slider{
+.slider {
     width: 55%;
+    max-width: 700px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.slider img{
+.slider img {
     width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.motorcycle-card-firstContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.booking {
+    background-color: #fff;
+    width: 30%;
+    max-width: 500px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-location,
+.booking-pick_up,
+.booking-drop_off {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.booking-location label,
+.booking-pick_up label,
+.booking-drop_off label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.booking-location input,
+.booking-pick_up input,
+.booking-drop_off input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.booking-duration {
+    margin-top: 20px;
+}
+
+.booking-duration label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.booking-duration p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.booking-duration input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.slider-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.slider-controls button:hover {
+    background-color: #0056b3;
+}
+
+.booking-pick_up .date,
+.booking-drop_off .date {
+    display: flex;
+    gap: 10px;
+}
+
+.booking-pick_up .date input,
+.booking-drop_off .date input {
+    flex: 1;
 }
