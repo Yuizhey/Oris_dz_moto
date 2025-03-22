@@ -1,7 +1,7 @@
 const carsConsts = [
     {
         id: 1,
-        imagePath: "images/CBR.png",
+        imagePath: "images/car5.png",
         name: "CBR",
         characteristics: {
             seats: 2,
@@ -17,7 +17,7 @@ const carsConsts = [
     },
     {
         id: 2,
-        imagePath: "images/TeslaModel3.png",
+        imagePath: "images/car5.png",
         name: "Tesla Model 3",
         characteristics: {
             seats: 5,
@@ -33,7 +33,7 @@ const carsConsts = [
     },
     {
         id: 3,
-        imagePath: "images/FordMustang.png",
+        imagePath: "images/car5.png",
         name: "Ford Mustang",
         characteristics: {
             seats: 4,
@@ -49,7 +49,7 @@ const carsConsts = [
     },
     {
         id: 4,
-        imagePath: "images/BMWX5.png",
+        imagePath: "images/car5.png",
         name: "BMW X5",
         characteristics: {
             seats: 5,
@@ -65,7 +65,7 @@ const carsConsts = [
     },
     {
         id: 5,
-        imagePath: "images/AudiA6.png",
+        imagePath: "images/car5.png",
         name: "Audi A6",
         characteristics: {
             seats: 5,
@@ -81,7 +81,7 @@ const carsConsts = [
     },
     {
         id: 6,
-        imagePath: "images/MercedesGLE.png",
+        imagePath: "images/car5.png",
         name: "Mercedes GLE",
         characteristics: {
             seats: 5,
@@ -97,7 +97,7 @@ const carsConsts = [
     },
     {
         id: 7,
-        imagePath: "images/ToyotaCamry.png",
+        imagePath: "images/car5.png",
         name: "Toyota Camry",
         characteristics: {
             seats: 5,
@@ -113,7 +113,7 @@ const carsConsts = [
     },
     {
         id: 8,
-        imagePath: "images/HondaCivic.png",
+        imagePath: "images/car5.png",
         name: "Honda Civic",
         characteristics: {
             seats: 5,
@@ -129,7 +129,7 @@ const carsConsts = [
     },
     {
         id: 9,
-        imagePath: "images/NissanGTR.png",
+        imagePath: "images/car5.png",
         name: "Nissan GTR",
         characteristics: {
             seats: 4,
@@ -145,7 +145,7 @@ const carsConsts = [
     },
     {
         id: 10,
-        imagePath: "images/ChevroletTahoe.png",
+        imagePath: "images/car5.png",
         name: "Chevrolet Tahoe",
         characteristics: {
             seats: 7,
@@ -161,7 +161,7 @@ const carsConsts = [
     },
     {
         id: 11,
-        imagePath: "images/Porsche911.png",
+        imagePath: "images/car5.png",
         name: "Porsche 911",
         characteristics: {
             seats: 2,
@@ -177,7 +177,7 @@ const carsConsts = [
     },
     {
         id: 12,
-        imagePath: "images/LamborghiniHuracan.png",
+        imagePath: "images/car5.png",
         name: "Lamborghini Huracan",
         characteristics: {
             seats: 2,

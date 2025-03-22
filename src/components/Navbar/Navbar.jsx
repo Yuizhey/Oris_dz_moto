@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaChevronDown } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -20,13 +20,13 @@ const Navbar = () => {
       <nav className={styles["navbar-menu"]}>
         <ul className={styles["navbar-menu-list"]}>
           <li className={styles["navbar-menu-list-item"]}>
-            <a href='/motohomepage' className='item-hosting'>Hosting <FaChevronDown size="0.5em"/></a>
+            <Link to='/motohomepage' className='item-hosting'>Hosting <FaChevronDown size="0.5em"/></Link>
           </li>
           <li className={styles["navbar-menu-list-item"]}>
-            <a href='/motohomepage' className='item-contactUs'>Contact Us</a>
+            <Link to='/motohomepage' className='item-contactUs'>Contact Us</Link>
           </li>
           <li className={styles["navbar-menu-list-item"]}>
-            <a href='/motohomepage' className='item-account'>Account <FaChevronDown size="0.5em"/></a>
+            <Link to='/motohomepage' className='item-account'>Account <FaChevronDown size="0.5em"/></Link>
           </li>
         </ul>
       </nav>
