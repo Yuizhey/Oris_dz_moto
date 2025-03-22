@@ -15,11 +15,9 @@ function MotoIndividualPage() {
 
   return (
     <div className="page-container">
-      <Navbar />
       <div className="content">
         <MotoCycleIndividualCard motorcycle={item} type={type} />
       </div>
-      <Footer />
     </div>
   );
 }

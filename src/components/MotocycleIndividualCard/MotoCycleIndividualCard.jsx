@@ -84,7 +84,7 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
           </div>
         </div>
         <div className={styles.booking}>
-          <LuMessageCircleHeart size={"3rem"} style={{ marginLeft: "280px" }} />
+          <LuMessageCircleHeart size={"3rem"} style={{ marginLeft: "250px" }} />
           <div className={styles["booking-location"]}>
             <label htmlFor="location"><IoLocationOutline /> Location</label>
             <input type="text" name="location" placeholder="location" />

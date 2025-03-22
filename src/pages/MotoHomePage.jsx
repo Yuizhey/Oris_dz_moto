@@ -16,7 +16,7 @@ function MotoHomePage() {
   function handleSearch(query) {
     const lowerQuery = query.toLowerCase();
     const listToFilter = currentTypeOfList ==="motocycles" ? motocyclesConsts : carsConsts;
-
+    
     if (query.trim() === "") {
       setFilteredMotocycleList(motocyclesConsts); 
       setFilteredCarsList(carsConsts);
@@ -36,14 +36,30 @@ function MotoHomePage() {
     setCurrentTypeOfList(type);
   };
 
+  function handleMaxPrice(value){
+    const listToFilter = currentTypeOfList ==="motocycles" ? motocyclesConsts : carsConsts;
+    const trimmedValue = String(value).trim();
+    if (!trimmedValue && trimmedValue !== "0") {
+      setFilteredMotocycleList(motocyclesConsts); 
+      setFilteredCarsList(carsConsts);
+    } else {
+      const filtered = listToFilter.filter(item => 
+        Number(item.pricePerHour) <= value
+      );
+      if (currentTypeOfList ==="motocycles"){
+        setFilteredMotocycleList(filtered);
+      }else{
+        setFilteredCarsList(filtered);
+      }
+    }
+  };
+
   return (
     <div className="page-container">
-      <Navbar />
-      <SearchBar onChange={handleSearch} onChangeType={handleChangeType}/>
+      <SearchBar onChange={handleSearch} onChangeType={handleChangeType} onSetMaxPrice={handleMaxPrice}/>
       <div className="content">
         <MotoCardsGrid list={currentTypeOfList === 'motocycles' ? filteredMotocycleList : filteredCarsList} type={currentTypeOfList}/>
       </div>
-      <Footer />
     </div>
   )
 }

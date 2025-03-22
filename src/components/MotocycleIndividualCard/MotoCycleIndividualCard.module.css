@@ -16,9 +16,6 @@
     width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .motorcycle-card h2,
@@ -28,18 +25,13 @@
 
 .specifications {
     width: 300px;
-    background-color: #fff;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .information {
     width: 550px;
-    background-color: #fff;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .slider {

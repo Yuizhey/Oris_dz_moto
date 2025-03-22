@@ -10,7 +10,7 @@ const Navbar = () => {
   function backToHomePage(){
     navigate("/motohomepage")
   }
-
+  console.log("header");
   return (
     <div className={styles.navbar}>
       <div className={styles["navbar-logo"]} onClick={backToHomePage}>
@@ -38,4 +38,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default React.memo(Navbar);

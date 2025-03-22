@@ -1,18 +1,21 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MotoHomePage from './pages/MotoHomePage';
 import MotoIndividualPage from './pages/MotoIndividualPage';
+import Layout from './Layout/Layout';
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/motohomepage" />} />
-        <Route path='/motohomepage' element={<MotoHomePage/>}/>
-        <Route path='/motoindividualpage/:id' element={<MotoIndividualPage/>}/>
+        <Route path="/" element={<Layout/>} >
+          <Route index element={<Layout />} />
+          <Route path='/motohomepage' element={<MotoHomePage/>}/>
+          <Route path='/motoindividualpage/:id' element={<MotoIndividualPage/>}/>
+        </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   )
 }
 
