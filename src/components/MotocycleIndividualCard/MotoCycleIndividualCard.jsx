@@ -6,18 +6,14 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { GrPrevious, GrNext } from "react-icons/gr";
 
 function MotoCycleIndividualCard({ motorcycle, type }) {
-  // Если транспорт не передан, показываем сообщение об ошибке
   if (!motorcycle) {
     return <div>Транспорт не найден</div>;
   }
 
   const isMotocycle = type === "motocycles";
-
-  // Деструктуризация для удобства
   const { id, imagePath, name, characteristics, pricePerHour } = motorcycle;
   const { seats, horsepower, fuel, engine } = characteristics;
 
-  // Массив изображений (можно заменить на реальные данные)
   const images = [
     imagePath,
     imagePath,
@@ -25,16 +21,12 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
     imagePath,
   ];
 
-  // Состояние для текущего индекса слайда
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Состояния для Pick-Up и Drop-Off
   const [pickUpDate, setPickUpDate] = useState('');
   const [pickUpTime, setPickUpTime] = useState('');
   const [dropOffDate, setDropOffDate] = useState('');
   const [dropOffTime, setDropOffTime] = useState('');
 
-  // Вычисляем разницу между Pick-Up и Drop-Off
   const calculateDuration = () => {
     if (!pickUpDate || !pickUpTime || !dropOffDate || !dropOffTime) {
       return { hours: 0, cost: 0 };
@@ -42,14 +34,8 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
 
     const pickUpDateTime = new Date(`${pickUpDate}T${pickUpTime}`);
     const dropOffDateTime = new Date(`${dropOffDate}T${dropOffTime}`);
-
-    // Разница в миллисекундах
     const diffInMs = dropOffDateTime - pickUpDateTime;
-
-    // Преобразуем разницу в часы
     const diffInHours = diffInMs / (1000 * 60 * 60);
-
-    // Вычисляем стоимость
     const cost = diffInHours * pricePerHour;
 
     return { hours: diffInHours, cost };
@@ -57,7 +43,6 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
 
   const { hours, cost } = calculateDuration();
 
-  // Функции для переключения слайдов
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -70,14 +55,24 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
 
   return (
     <div className={styles["motorcycle-card"]}>
-      {/* Первый контейнер: слайдер и кнопка бронирования */}
       <div className={styles["motorcycle-card-firstContainer"]}>
         <div className={styles.slider}>
-          <div className={styles["slider-images"]}>
+          <div className={styles["slider-mainImage"]}>
             <img
-              src={`../../${images[currentIndex]}`} // Используем правильный путь к изображению
-              alt={`Slide ${currentIndex + 1}`}
+              src={`../../${images[currentIndex]}`}
+              alt={`Main Slide ${currentIndex + 1}`}
             />
+          </div>
+          <div className={styles["slider-thumbnails"]}>
+            {images.slice(-3).map((img, index) => (
+              <img
+                key={index}
+                src={`../../${img}`}
+                alt={`Thumbnail ${index + 1}`}
+                onClick={() => setCurrentIndex(index)}
+                className={index === currentIndex ? styles.active : ''}
+              />
+            ))}
           </div>
           <div className={styles["slider-controls"]}>
             <button className={styles.navButton} onClick={prevSlide}>
@@ -134,8 +129,8 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
               <p>Разница: {hours.toFixed(2)} часов</p>
               <input
                 type="number"
-                value={cost.toFixed(2)} // Округляем до 2 знаков после запятой
-                readOnly // Делаем инпут некликабельным
+                value={cost.toFixed(2)}
+                readOnly
                 placeholder="Total cost"
               />
             </div>
@@ -143,7 +138,6 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
         </div>
       </div>
 
-      {/* Второй контейнер: информация и характеристики */}
       <div className={styles["motorcycle-card-secondContainer"]}>
         <div className={styles.information}>
           <h2 className={styles["information-title"]}>{name}</h2>
@@ -166,7 +160,6 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
             <p className={styles.characteristic}>Engine: {engine}</p>
           </div>
 
-          {/* Условный рендеринг для мотоциклов и автомобилей */}
           {isMotocycle ? (
             <>
               <div className={styles.cardInfo}>

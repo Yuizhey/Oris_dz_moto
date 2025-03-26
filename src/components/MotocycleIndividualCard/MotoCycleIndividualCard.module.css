@@ -26,7 +26,6 @@
 .specifications {
     width: 300px;
     padding: 15px;
-
 }
 
 .information {
@@ -37,15 +36,72 @@
 .slider {
     width: 55%;
     max-width: 700px;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 80px;
+    gap: 10px;
 }
 
-.slider img {
+.slider-mainImage img {
     width: 100%;
     height: auto;
-    border-radius: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.slider-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.slider-thumbnails img {
+    width: 33%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.slider-thumbnails img.active {
+    opacity: 1;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    transform: translateY(-50%);
+}
+
+.slider-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.slider-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.slider-controls .navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .motorcycle-card-firstContainer {
@@ -119,25 +175,6 @@
     margin-top: 5px;
     background-color: #f9f9f9;
     cursor: not-allowed;
-}
-
-.slider-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.slider-controls button {
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.slider-controls button:hover {
-    background-color: #0056b3;
 }
 
 .booking-pick_up .date,
