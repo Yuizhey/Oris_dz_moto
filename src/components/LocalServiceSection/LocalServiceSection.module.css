@@ -1,0 +1,17 @@
+.container{
+    justify-content: center;
+}
+
+.container-title{
+    margin: 0 auto;
+}
+
+.container-images{
+    display: flex;
+}
+
+.image{
+    width: 100px; height: 100px;
+    border-radius: 100%;
+    border: 1px solid black;
+}

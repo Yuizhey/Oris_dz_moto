@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MotoHomePage from './pages/MotoHomePage';
 import MotoIndividualPage from './pages/MotoIndividualPage';
 import Layout from './Layout/Layout';
+import PresentationPage from './pages/PresentationPage';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<Layout />} />
           <Route path='/motohomepage' element={<MotoHomePage/>}/>
           <Route path='/motoindividualpage/:id' element={<MotoIndividualPage/>}/>
+          <Route path='/presentationpage' element={<PresentationPage />} />
         </Route>
       </Routes>
     </Router>
