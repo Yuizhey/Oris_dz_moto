@@ -3,6 +3,7 @@ import styles from "./MotoCycleIndividualCard.module.css";
 import { LuMessageCircleHeart } from "react-icons/lu";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineDateRange } from "react-icons/md";
+import { GrPrevious, GrNext } from "react-icons/gr";
 
 function MotoCycleIndividualCard({ motorcycle, type }) {
   // Если транспорт не передан, показываем сообщение об ошибке
@@ -79,8 +80,12 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
             />
           </div>
           <div className={styles["slider-controls"]}>
-            <button onClick={prevSlide}>Prev</button>
-            <button onClick={nextSlide}>Next</button>
+            <button className={styles.navButton} onClick={prevSlide}>
+              <GrPrevious />
+            </button>
+            <button className={styles.navButton} onClick={nextSlide}>
+              <GrNext />
+            </button>
           </div>
         </div>
         <div className={styles.booking}>
