@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .textContent {
+    max-width: 500px;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .statsContainer {
+    display: flex;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .number {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .label {
+    font-size: 14px;
+    color: #777;
+  }
+  
