@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom';
 import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid'
 import SearchBar from '../components/SearchBar/SearchBar'
 import motocyclesConsts from "../constants/MotocyclesConsts"
@@ -7,9 +8,10 @@ import "./pages.css"
 
 
 function MotoHomePage() {
+  const [searchParams] = useSearchParams();
   const [filteredMotocycleList, setFilteredMotocycleList] = useState(motocyclesConsts);
   const [filteredCarsList, setFilteredCarsList] = useState(carsConsts);
-  const [currentTypeOfList, setCurrentTypeOfList] = useState("motocycles");
+  const [currentTypeOfList, setCurrentTypeOfList] = useState(searchParams.get('type') || "motocycles");
 
   function handleSearch(query) {
     const lowerQuery = query.toLowerCase();

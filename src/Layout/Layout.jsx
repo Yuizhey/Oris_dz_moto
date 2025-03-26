@@ -10,7 +10,8 @@ function Layout() {
   
   return (
     <>
-      <Navbar variant={isPresentationPage ? 'presentation' : 'default'} />
+      {/* <Navbar variant={isPresentationPage ? 'presentation' : 'default'} /> */}
+      <Navbar />
       <Outlet />
       <Footer />
     </>
