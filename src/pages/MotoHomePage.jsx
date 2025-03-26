@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from '../components/Navbar/Navbar'
 import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid'
 import SearchBar from '../components/SearchBar/SearchBar'
-import Footer from '../components/Footer/Footer'
 import motocyclesConsts from "../constants/MotocyclesConsts"
 import carsConsts from "../constants/CarsConsts"
 import "./pages.css"

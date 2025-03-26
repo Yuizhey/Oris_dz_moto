@@ -3,7 +3,6 @@ import LocalServiceSection from '../components/LocalServiceSection/LocalServiceS
 import CustomerSayingSection from '../components/CustomerSayingSection/CustomerSayingSection'
 import RentSection from '../components/RentSection/RentSection'
 import WhyChooseUsSection from '../components/WhyChooseUsSection/WhyChooseUsSection'
-import Navbar from '../components/Navbar/Navbar'
 
 function PresentationPage() {
   return (

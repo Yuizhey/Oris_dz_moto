@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+  console.log("Footer");
   return (
     <div className={styles.footer}>
       <div className="footer-driveeSection">
@@ -52,4 +53,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)

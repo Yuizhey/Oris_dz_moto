@@ -1,6 +1,4 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
-import Footer from '../components/Footer/Footer'
 import MotoCycleIndividualCard from '../components/MotocycleIndividualCard/MotoCycleIndividualCard'
 import { useLocation } from 'react-router-dom'
 import "./pages.css"
