@@ -1,16 +1,17 @@
 .container {
     text-align: center;
     padding: 2rem;
-    background-color: #f5f5f5;
+    background-color: white;
     border-radius: 8px;
     max-width: 1600px;
     margin: 0 auto;
+    /* padding: 70px; */
   }
   
   .title {
     font-size: 2rem;
     color: #333;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
   
   .locations {
@@ -34,6 +35,7 @@
     justify-content: center;
     gap: 1rem;
     position: relative;
+    height: 200px;
   }
   
   .sliderTrack {
@@ -42,11 +44,12 @@
     overflow: hidden;
     width: 80%;
     justify-content: center;
+    align-items: center;
   }
   
   .slideImage {
-    width: 180px;
-    height: 180px;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -56,7 +59,8 @@
   }
   
   .slideImage:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
+    cursor: pointer;
   }
   
   .navButton {
