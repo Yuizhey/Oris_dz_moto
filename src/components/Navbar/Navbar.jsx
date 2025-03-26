@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ variant = 'default' }) => {
+  console.log(variant);
   const navigate = useNavigate();
 
   const renderRightSection = () => {
@@ -35,24 +36,24 @@ const Navbar = ({ variant = 'default' }) => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles["navbar-logo"]} onClick={() => navigate('/motohomepage')}>
+      <div className={styles["navbar-logo"]} onClick={() => navigate('/presentationpage')}>
         <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
       </div>
 
       <nav className={styles["navbar-menu"]}>
         <ul className={styles["navbar-menu-list"]}>
           <li className={styles["navbar-menu-list-item"]}>
-            <Link to='/hosting' className={styles.menuItem}>
+            <Link to='/motohomepage' className={styles.menuItem}>
               Hosting <FaChevronDown size="0.5em"/>
             </Link>
           </li>
           <li className={styles["navbar-menu-list-item"]}>
-            <Link to='/contact' className={styles.menuItem}>
+            <Link to='/motohomepage' className={styles.menuItem}>
               Contact Us
             </Link>
           </li>
           <li className={styles["navbar-menu-list-item"]}>
-            <Link to='/account' className={styles.menuItem}>
+            <Link to='/motohomepage' className={styles.menuItem}>
               Account <FaChevronDown size="0.5em"/>
             </Link>
           </li>

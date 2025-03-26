@@ -8,7 +8,6 @@ import Navbar from '../components/Navbar/Navbar'
 function PresentationPage() {
   return (
     <div>
-        <Navbar variant="presentation" />
         <RentSection />
         <WhyChooseUsSection />
         <CustomerSayingSection />
