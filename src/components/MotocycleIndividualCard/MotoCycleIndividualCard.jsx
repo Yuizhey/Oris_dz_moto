@@ -59,7 +59,7 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
         <div className={styles.slider}>
           <div className={styles["slider-mainImage"]}>
             <img
-              src={`../../${images[currentIndex]}`}
+              src={`${images[currentIndex]}`}
               alt={`Main Slide ${currentIndex + 1}`}
             />
           </div>
@@ -67,7 +67,7 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
             {images.slice(-3).map((img, index) => (
               <img
                 key={index}
-                src={`../../${img}`}
+                src={`${img}`}
                 alt={`Thumbnail ${index + 1}`}
                 onClick={() => setCurrentIndex(index)}
                 className={index === currentIndex ? styles.active : ''}
@@ -167,7 +167,7 @@ function MotoCycleIndividualCard({ motorcycle, type }) {
                   Front Brake: {characteristics.frontBrake}
                 </p>
                 <p className={styles.characteristic}>
-                  Stroke: {characteristics.stroke}
+                  Color: {characteristics.color}
                 </p>
               </div>
               <div className={styles.cardInfo}>

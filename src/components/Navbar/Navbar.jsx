@@ -2,6 +2,7 @@ import {React, memo, useCallback} from 'react';
 import { FaChevronDown } from "react-icons/fa";
 import { useNavigate, Link } from 'react-router-dom';
 import styles from "./Navbar.module.css";
+import { BsJustifyRight } from 'react-icons/bs';
 
 const AuthButtons = ({ onSignIn, onSignUp }) => (
   <div className={styles.authButtons}>

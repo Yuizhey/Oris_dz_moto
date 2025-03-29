@@ -9,6 +9,21 @@
     padding: 20px;
 }
 
+/* Добавляем стили для navbar-top */
+.navbar-top {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    order: -1;
+}
+
+/* Добавляем стили для расположения меню */
+.navbar-menu {
+    flex-grow: 1; /* Занимает доступное пространство */
+    display: flex;
+    justify-content: center; /* Центрируем меню */
+    z-index: -1;
+}
 
 .navbar-menu-list{
     display: flex;
@@ -102,11 +117,10 @@ a{
     }
 
     .navbar-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         width: 100%;
+        justify-content: space-between;
         margin-bottom: 20px;
+        order: 0; /* Сбрасываем order для мобильной версии */
     }
 
     .navbar-menu {

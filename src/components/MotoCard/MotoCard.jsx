@@ -35,7 +35,7 @@ function MotoCard(props) {
         <>
         <div className={styles.cardInfo}>
           <p className={styles.characteristic}>Front Brake: {characteristics.frontBrake}</p>
-          <p className={styles.characteristic}>Stroke: {characteristics.stroke}</p>
+          <p className={styles.characteristic}>Color: {characteristics.color}</p>
         </div>
         <div className={styles.cardInfo}>
           <p className={styles.characteristic}>Gear Box: {characteristics.gearBox}</p>
