@@ -84,3 +84,30 @@
     font-size: 14px;
     color: #666;
 }
+
+@media (max-width: 1200px) {
+    .card {
+        max-width: 280px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .cardRentInfo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rentInfoButton {
+        width: 100%;
+    }
+
+    .cardInfo {
+        padding: 5px 5px;
+    }
+}
