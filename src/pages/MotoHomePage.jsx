@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid'
 import SearchBar from '../components/SearchBar/SearchBar'
@@ -6,59 +6,44 @@ import motocyclesConsts from "../constants/MotocyclesConsts"
 import carsConsts from "../constants/CarsConsts"
 import "./pages.css"
 
-
 function MotoHomePage() {
   const [searchParams] = useSearchParams();
-  const [filteredMotocycleList, setFilteredMotocycleList] = useState(motocyclesConsts);
-  const [filteredCarsList, setFilteredCarsList] = useState(carsConsts);
-  const [currentTypeOfList, setCurrentTypeOfList] = useState(searchParams.get('type') || "motocycles");
+  const [filters, setFilters] = useState({
+    search: searchParams.get('search') || "",
+    maxPrice: searchParams.get('maxPrice') || "",
+    type: searchParams.get('type') || "motocycles"
+  });
 
-  function handleSearch(query) {
-    const lowerQuery = query.toLowerCase();
-    const listToFilter = currentTypeOfList ==="motocycles" ? motocyclesConsts : carsConsts;
+  const getFilteredList = () => {
+    const sourceList = filters.type === "motocycles" ? motocyclesConsts : carsConsts;
     
-    if (query.trim() === "") {
-      setFilteredMotocycleList(motocyclesConsts); 
-      setFilteredCarsList(carsConsts);
-    } else {
-      const filtered = listToFilter.filter(item => 
-        item.name.toLowerCase().includes(lowerQuery)
-      );
-      if (currentTypeOfList ==="motocycles"){
-        setFilteredMotocycleList(filtered);
-      }else{
-        setFilteredCarsList(filtered);
-      }
-    }
-  }
+    return sourceList.filter(item => {
+      const matchesSearch = !filters.search.trim() || 
+        item.name.toLowerCase().includes(filters.search.toLowerCase());
+      
+      const matchesPrice = !filters.maxPrice.trim() || 
+        Number(item.pricePerHour) <= Number(filters.maxPrice);
 
-  function handleChangeType(type){
-    setCurrentTypeOfList(type);
+      return matchesSearch && matchesPrice;
+    });
   };
 
-  function handleMaxPrice(value){
-    const listToFilter = currentTypeOfList ==="motocycles" ? motocyclesConsts : carsConsts;
-    const trimmedValue = String(value).trim();
-    if (!trimmedValue && trimmedValue !== "0") {
-      setFilteredMotocycleList(motocyclesConsts); 
-      setFilteredCarsList(carsConsts);
-    } else {
-      const filtered = listToFilter.filter(item => 
-        Number(item.pricePerHour) <= value
-      );
-      if (currentTypeOfList ==="motocycles"){
-        setFilteredMotocycleList(filtered);
-      }else{
-        setFilteredCarsList(filtered);
-      }
-    }
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prev => ({ ...prev, [filterName]: value }));
   };
 
   return (
     <div className="page-container">
-      <SearchBar onChange={handleSearch} onChangeType={handleChangeType} onSetMaxPrice={handleMaxPrice}/>
+      <SearchBar 
+        onChange={(value) => handleFilterChange('search', value)}
+        onChangeType={(value) => handleFilterChange('type', value)}
+        onSetMaxPrice={(value) => handleFilterChange('maxPrice', value)}
+      />
       <div className="content">
-        <MotoCardsGrid list={currentTypeOfList === 'motocycles' ? filteredMotocycleList : filteredCarsList} type={currentTypeOfList}/>
+        <MotoCardsGrid 
+          list={getFilteredList()} 
+          type={filters.type}
+        />
       </div>
     </div>
   )
