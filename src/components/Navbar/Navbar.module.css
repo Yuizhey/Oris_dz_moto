@@ -71,3 +71,86 @@ a{
     background: #0056b3;
     border-color: #0056b3;
 }
+
+/* Обновляем стили для изображений */
+.logoImage {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-userImage {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-userImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .navbar-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .navbar-menu {
+        width: 100%;
+    }
+
+    .navbar-menu-list {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .navbar-menu-list-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menuItem {
+        font-size: 16px;
+        padding: 5px 0;
+        display: block;
+    }
+
+    .logoImage {
+        height: 40px;
+    }
+
+    .navbar-userImage {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .logoImage {
+        height: 35px;
+    }
+
+    .navbar-userImage {
+        height: 35px;
+        width: 35px;
+    }
+}

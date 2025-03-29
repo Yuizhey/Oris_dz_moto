@@ -17,8 +17,6 @@ const UserProfile = () => (
 );
 
 const Navbar = ({ variant = 'default' }) => {
-  console.log('Navbar render', variant);
-
   const navigate = useNavigate();
   const handleSignIn = useCallback(() => navigate('/signin'), [navigate]);
   const handleSignUp = useCallback(() => navigate('/signup'), [navigate]);
@@ -26,8 +24,15 @@ const Navbar = ({ variant = 'default' }) => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles["navbar-logo"]} onClick={handleLogoClick}>
-        <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
+      <div className={styles["navbar-top"]}>
+        <div className={styles["navbar-logo"]} onClick={handleLogoClick}>
+          <img src="/images/logo.png" alt="logo" className={styles.logoImage} />
+        </div>
+
+        {variant === 'presentation' 
+          ? <AuthButtons onSignIn={handleSignIn} onSignUp={handleSignUp} />
+          : <UserProfile />
+        }
       </div>
 
       <nav className={styles["navbar-menu"]}>
@@ -49,11 +54,6 @@ const Navbar = ({ variant = 'default' }) => {
           </li>
         </ul>
       </nav>
-
-      {variant === 'presentation' 
-        ? <AuthButtons onSignIn={handleSignIn} onSignUp={handleSignUp} />
-        : <UserProfile />
-      }
     </div>
   );
 };
