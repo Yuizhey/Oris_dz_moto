@@ -9,7 +9,7 @@
     transition: transform 0.2s ease-in-out !important;
     cursor: pointer !important;
     background-color: #F4F4F3;
-    height: 500px;
+    height: 550px;
 }
 
 .card:hover {
@@ -29,6 +29,7 @@
     margin: 10px 0;
     padding: 0 10px;
     color: #000;
+    height: 50px;
 }
 
 .cardInfo {
