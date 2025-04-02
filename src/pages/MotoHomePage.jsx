@@ -1,52 +1,87 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid'
-import SearchBar from '../components/SearchBar/SearchBar'
-import motocyclesConsts from "../constants/MotocyclesConsts"
-import carsConsts from "../constants/CarsConsts"
-import "./pages.css"
+import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid';
+import SearchBar from '../components/SearchBar/SearchBar';
+import "./pages.css";
 
 function MotoHomePage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     search: searchParams.get('search') || "",
     maxPrice: searchParams.get('maxPrice') || "",
-    type: searchParams.get('type') || "motocycles"
+    type: searchParams.get('type') || "motorcycles"
   });
 
-  const getFilteredList = () => {
-    const sourceList = filters.type === "motocycles" ? motocyclesConsts : carsConsts;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Формирование URL с параметрами
+  const buildApiUrl = () => {
+    const baseUrl = filters.type === "motorcycles" 
+      ? "http://localhost:5101/api/Motorcycle/filtered" 
+      : "http://localhost:5101/api/Car/filtered";
     
-    return sourceList.filter(item => {
-      const matchesSearch = !filters.search.trim() || 
-        item.name.toLowerCase().includes(filters.search.toLowerCase());
-      
-      const matchesPrice = !filters.maxPrice.trim() || 
-        Number(item.pricePerHour) <= Number(filters.maxPrice);
+    const params = new URLSearchParams();
+    if (filters.search) params.append('search', filters.search);
+    if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
+    
+    return `${baseUrl}?${params.toString()}`;
+  };
 
-      return matchesSearch && matchesPrice;
+  // Загрузка данных при изменении фильтров
+  useEffect(() => {
+    setLoading(true);
+    fetch(buildApiUrl())
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+    
+    // Обновляем URL в браузере
+    setSearchParams({
+      search: filters.search,
+      maxPrice: filters.maxPrice,
+      type: filters.type
     });
+  }, [filters.search, filters.maxPrice, filters.type]);
+
+  const handleSearchChange = (value) => {
+    setFilters(prev => ({ ...prev, search: value }));
   };
 
-  const handleFilterChange = (filterName, value) => {
-    setFilters(prev => ({ ...prev, [filterName]: value }));
+  const handleTypeChange = (value) => {
+    setFilters(prev => ({ ...prev, type: value }));
   };
+
+  const handleMaxPriceChange = (value) => {
+    setFilters(prev => ({ ...prev, maxPrice: value }));
+  };
+
+  if (loading) return <div className="page-container">Loading...</div>;
 
   return (
     <div className="page-container">
       <SearchBar 
-        onChange={(value) => handleFilterChange('search', value)}
-        onChangeType={(value) => handleFilterChange('type', value)}
-        onSetMaxPrice={(value) => handleFilterChange('maxPrice', value)}
+        searchValue={filters.search}
+        typeValue={filters.type}
+        maxPriceValue={filters.maxPrice}
+        onSearchChange={handleSearchChange}
+        onTypeChange={handleTypeChange}
+        onMaxPriceChange={handleMaxPriceChange}
       />
       <div className="content">
         <MotoCardsGrid 
-          list={getFilteredList()} 
+          list={data} 
           type={filters.type}
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default MotoHomePage
+export default MotoHomePage;
