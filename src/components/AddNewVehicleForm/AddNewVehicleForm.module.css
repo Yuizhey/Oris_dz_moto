@@ -1,0 +1,108 @@
+/* AddNewVehicleForm.module.css */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box; /* Добавляем box-sizing */
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; /* Добавляем ширину 100% */
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%; /* Добавляем ширину 100% */
+  }
+  
+  .label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    width: 100%; /* Устанавливаем ширину 100% */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Добавляем box-sizing */
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: white;
+  }
+  
+  .select {
+    width: 100%; /* Устанавливаем ширину 100% */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    appearance: none;
+    box-sizing: border-box; /* Добавляем box-sizing */
+  }
+  
+  .formRow {
+    display: flex;
+    gap: 15px; /* Уменьшаем gap для лучшего размещения */
+    width: 100%; /* Добавляем ширину 100% */
+  }
+  
+  .formRow .formGroup {
+    flex: 1;
+    min-width: 0; /* Добавляем min-width для правильного расчета flex */
+  }
+  
+  .submitButton {
+    width: 100%; /* Устанавливаем ширину 100% */
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+  }
+  
+  .submitButton:hover {
+    background-color: #333; /* Изменяем цвет при наведении */
+  }
+  
+  .selectWrapper {
+    position: relative;
+    width: 100%; /* Добавляем ширину 100% */
+  }
+  
+  .selectWrapper::after {
+    content: '▼';
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }

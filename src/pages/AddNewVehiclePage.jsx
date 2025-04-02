@@ -1,9 +1,10 @@
 import React from 'react'
 import AddNewVehicleForm from '../components/AddNewVehicleForm/AddNewVehicleForm'
+import "./pages.css";
 
 function AddNewVehiclePage() {
   return (
-    <div>
+    <div className="page-container">
       <AddNewVehicleForm/>
     </div>
   )
