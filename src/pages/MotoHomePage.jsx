@@ -15,17 +15,25 @@ function MotoHomePage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Определяем, есть ли активные фильтры
+  const hasFilters = filters.search || filters.maxPrice;
+
   // Формирование URL с параметрами
   const buildApiUrl = () => {
     const baseUrl = filters.type === "motorcycles" 
-      ? "http://localhost:5101/api/Motorcycle/filtered" 
-      : "http://localhost:5101/api/Car/filtered";
+      ? "http://localhost:5101/api/Motorcycle" 
+      : "http://localhost:5101/api/Car";
     
-    const params = new URLSearchParams();
-    if (filters.search) params.append('search', filters.search);
-    if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
+    // Если есть фильтры - добавляем /filtered и параметры
+    if (hasFilters) {
+      const params = new URLSearchParams();
+      if (filters.search) params.append('search', filters.search);
+      if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
+      return `${baseUrl}/filtered?${params.toString()}`;
+    }
     
-    return `${baseUrl}?${params.toString()}`;
+    // Если фильтров нет - простой GET запрос
+    return baseUrl;
   };
 
   // Загрузка данных при изменении фильтров
