@@ -21,8 +21,8 @@ function MotoHomePage() {
   // Формирование URL с параметрами
   const buildApiUrl = () => {
     const baseUrl = filters.type === "motorcycles" 
-      ? "http://localhost:5101/api/Motorcycle" 
-      : "http://localhost:5101/api/Car";
+      ? "http://www.petrov.somee.com/api/api/Motorcycle" 
+      : "http://www.petrov.somee.com/api/api/Car";
     
     // Если есть фильтры - добавляем /filtered и параметры
     if (hasFilters) {
