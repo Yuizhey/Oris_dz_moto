@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid';
 import SearchBar from '../components/SearchBar/SearchBar';
 import "./pages.css";
 
 function MotoHomePage() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     search: searchParams.get('search') || "",
@@ -70,10 +71,38 @@ function MotoHomePage() {
     setFilters(prev => ({ ...prev, maxPrice: value }));
   };
 
+  const handleAddVehicle = () => {
+    navigate('/addnewvehiclepage');
+  };
+
   if (loading) return <div className="page-container">Loading...</div>;
 
   return (
     <div className="page-container">
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'flex-end', 
+        padding: '20px'
+      }}>
+        <button 
+          onClick={handleAddVehicle}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#666',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            transition: 'background-color 0.3s',
+          }}
+          onMouseOver={(e) => e.target.style.backgroundColor = '#777'}
+          onMouseOut={(e) => e.target.style.backgroundColor = '#666'}
+        >
+          Сдать своё транспортное средство
+        </button>
+      </div>
       <SearchBar 
         searchValue={filters.search}
         typeValue={filters.type}

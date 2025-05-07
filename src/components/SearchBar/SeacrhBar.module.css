@@ -12,18 +12,46 @@
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 50px;
-  }
-  
-  .searchInput {
+}
+
+.searchInputWrapper {
+    position: relative;
+    margin-right: 20px;
+}
+
+.searchInput {
     width: 200px;
     height: 35px;
     padding: 0 10px;
-    margin-right: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .dropdownButton {
+    transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.loadingIndicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.dropdownButton {
     height: 35px;
     padding: 0 20px;
     margin-right: 20px;
@@ -31,16 +59,22 @@
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
-  }
-  
-  .searchButton {
+    transition: all 0.3s ease;
+}
+
+.dropdownButton:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+}
+
+.searchButton {
     height: 35px;
     padding: 0 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
-  }
+}
 
 @media (max-width: 1200px) {
     .searchBar {
@@ -56,7 +90,16 @@
         gap: 15px;
     }
 
-    .searchInput, .dropdownButton {
+    .searchInputWrapper {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .searchInput {
+        width: 100%;
+    }
+
+    .dropdownButton {
         width: 100%;
         margin-right: 0;
     }

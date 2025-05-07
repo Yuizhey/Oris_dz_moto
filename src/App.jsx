@@ -16,7 +16,7 @@ function App() {
           <Route path='/motohomepage' element={<MotoHomePage/>}/>
           <Route path='/motoindividualpage/:id' element={<MotoIndividualPage/>}/>
           <Route path='/presentationpage' element={<PresentationPage />}/>
-          <Route path='/addnewvehicelpage' element={<AddNewVehiclePage/>}/>
+          <Route path='/addnewvehiclepage' element={<AddNewVehiclePage/>}/>
         </Route>
       </Routes>
     </Router>
