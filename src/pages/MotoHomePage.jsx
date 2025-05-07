@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, memo } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import MotoCardsGrid from '../components/MotoCardsGrid/MotoCardsGrid';
 import SearchBar from '../components/SearchBar/SearchBar';
 import "./pages.css";
 
-function MotoHomePage() {
+const MotoHomePage = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
@@ -17,10 +17,10 @@ function MotoHomePage() {
   const [loading, setLoading] = useState(false);
 
   // Определяем, есть ли активные фильтры
-  const hasFilters = filters.search || filters.maxPrice;
+  const hasFilters = useMemo(() => filters.search || filters.maxPrice, [filters.search, filters.maxPrice]);
 
   // Формирование URL с параметрами
-  const buildApiUrl = () => {
+  const buildApiUrl = useMemo(() => {
     const baseUrl = filters.type === "motorcycles" 
       ? "http://www.petrov.somee.com/api/api/Motorcycle" 
       : "http://www.petrov.somee.com/api/api/Car";
@@ -35,12 +35,12 @@ function MotoHomePage() {
     
     // Если фильтров нет - простой GET запрос
     return baseUrl;
-  };
+  }, [filters.type, hasFilters, filters.search, filters.maxPrice]);
 
   // Загрузка данных при изменении фильтров
   useEffect(() => {
     setLoading(true);
-    fetch(buildApiUrl())
+    fetch(buildApiUrl)
       .then(res => res.json())
       .then(data => {
         setData(data);
@@ -57,7 +57,7 @@ function MotoHomePage() {
       maxPrice: filters.maxPrice,
       type: filters.type
     });
-  }, [filters.search, filters.maxPrice, filters.type]);
+  }, [buildApiUrl, filters.search, filters.maxPrice, filters.type, setSearchParams]);
 
   const handleSearchChange = (value) => {
     setFilters(prev => ({ ...prev, search: value }));
@@ -95,7 +95,7 @@ function MotoHomePage() {
             cursor: 'pointer',
             fontSize: '16px',
             fontWeight: 'bold',
-            transition: 'background-color 0.3s',
+            transition: 'background-color 0.3s'
           }}
           onMouseOver={(e) => e.target.style.backgroundColor = '#777'}
           onMouseOut={(e) => e.target.style.backgroundColor = '#666'}
@@ -119,6 +119,6 @@ function MotoHomePage() {
       </div>
     </div>
   );
-}
+};
 
-export default MotoHomePage;
+export default memo(MotoHomePage);

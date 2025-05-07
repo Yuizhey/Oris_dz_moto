@@ -1,79 +1,75 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styles from "./SeacrhBar.module.css";
 
-function SearchBar({ 
+const SearchBar = memo(({ 
   searchValue, 
   typeValue, 
   maxPriceValue, 
   onSearchChange, 
   onTypeChange, 
   onMaxPriceChange 
-}) {
+}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [localSearchValue, setLocalSearchValue] = useState(searchValue);
   const [localMaxPriceValue, setLocalMaxPriceValue] = useState(maxPriceValue);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Debounce для поиска
-  const debouncedSearch = useCallback(
-    (value) => {
-      const timer = setTimeout(() => {
-        setSearchParams(prev => {
-          prev.set('search', value);
-          return prev;
-        });
-        onSearchChange(value);
-        setIsLoading(false);
-      }, 500);
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
 
-      return () => clearTimeout(timer);
-    },
+  const debouncedSearch = useCallback(
+    debounce((value) => {
+      setSearchParams(prev => {
+        prev.set('search', value);
+        return prev;
+      });
+      onSearchChange(value);
+      setIsLoading(false);
+    }, 800),
     [onSearchChange, setSearchParams]
   );
 
-  // Debounce для максимальной цены
   const debouncedMaxPrice = useCallback(
-    (value) => {
-      const timer = setTimeout(() => {
-        setSearchParams(prev => {
-          prev.set('maxPrice', value);
-          return prev;
-        });
-        onMaxPriceChange(value);
-        setIsLoading(false);
-      }, 500);
-
-      return () => clearTimeout(timer);
-    },
+    debounce((value) => {
+      setSearchParams(prev => {
+        prev.set('maxPrice', value);
+        return prev;
+      });
+      onMaxPriceChange(value);
+      setIsLoading(false);
+    }, 800),
     [onMaxPriceChange, setSearchParams]
   );
 
-  // Обработчик изменения поискового запроса
-  function handleSearch(event) {
+  const handleSearch = useCallback((event) => {
     const value = event.target.value;
     setLocalSearchValue(value);
     setIsLoading(true);
     debouncedSearch(value);
-  }
+  }, [debouncedSearch]);
 
-  // Обработчик изменения типа
-  function handleChangeType(event) {
-    const value = event.target.value;
-    setSearchParams(prev => {
-      prev.set('type', value);
-      return prev;
-    });
-    onTypeChange(value);
-  }
-
-  // Обработчик изменения максимальной цены
-  function handleMaxPrice(event) {
+  const handleMaxPrice = useCallback((event) => {
     const value = event.target.value;
     setLocalMaxPriceValue(value);
     setIsLoading(true);
     debouncedMaxPrice(value);
-  }
+  }, [debouncedMaxPrice]);
+
+  const handleChangeType = useCallback((event) => {
+    setSearchParams(prev => {
+      prev.set('type', event.target.value);
+      return prev;
+    });
+    onTypeChange(event.target.value);
+  }, [onTypeChange, setSearchParams]);
 
   return (
     <div className={styles.searchBar}>
@@ -108,7 +104,9 @@ function SearchBar({
         <option value="cars">Cars</option>
       </select>
     </div>
-  )
-}
+  );
+});
+
+SearchBar.displayName = 'SearchBar';
 
 export default SearchBar;
